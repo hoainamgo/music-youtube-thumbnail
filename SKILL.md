@@ -38,12 +38,13 @@ Below: {VISUAL_IDEA_US}.
 > LUÔN có dòng text rõ + `16:9` / `1280x720 horizontal` để model ra đúng tỉ lệ.
 
 ## VISUAL IDEA THEO THỂ LOẠI (US-friendly, KHÔNG răng)
-- Love/tender: young couple silhouette at golden-hour window, warm bokeh
-- Upbeat/dance: dancer mid-move under neon club lights
+- Love/tender: young **man+woman** couple at golden-hour window, warm bokeh — xem Style B/F
+- Upbeat/dance: **man+woman** dancing close under neon club lights — xem Style F (Round Two)
 - Sad/emotional: lone figure on rainy city street, blue-grey mood
 - Confidence/anthem: artist on stage spotlight, bold color splash
 - Chill/lofi: cozy room, headphones, warm lamp glow
 → Chọn visual theo `style` bài, KHÔNG dùng mascot nha khoa.
+> 🔴 **COUPLE RULE (user correction #08)**: Với bài love/romance, **mặc định vẽ cặp nam+nữ** (heterosexual) trừ khi lời bài ghi rõ khác. Anh reject ảnh "2 người nữ ôm ấp" (same-sex embrace) → đổi thành nam/nữ khiêu vũ/gần nhau. KHÔNG dùng same-sex intimate embrace làm default.
 
 ## SHORT TITLE (3-5 từ từ title gốc)
 - "Stumbling First Words" → "FIRST WORDS"
@@ -67,8 +68,12 @@ Below: {VISUAL_IDEA_US}.
 - 🔴 **USER PREF (2026-07-20)**: Khi build progress/release dashboard, LUÔN chừa slot trống cho **YouTube Video** + **Shorts** (placeholder 🔜, KHÔNG xoá). User: "Chừa chỗ cho video youtube nha e, short nữa".
 - 📦 **RELEASE PIPELINE**: có thumbnail + audio rồi → qua skill `ai-music-release` (Drive sync + ONBOARDING + SEO_RELEASE_PLAN + progress site có sẵn video/shorts slots).
 
+## 📋 GỬI PROMPT CHO USER (box format)
+- Khi user yêu cầu "gửi prompt copy được" → gửi dạng **``` code block ```** (mỗi prompt 1 block, head comment `{A-F} — TÊN`), KHÔNG rải rác prose. User: "em gửi 5 prompt, dạng box, copy dc nha".
+- Mỗi block copy đổi `{TITLE}`/`{SHORT}` là dùng được.
+
 ## REFERENCES
-- `references/cinematic_prompts.md` — 5 prompt phong cách (Neo-Noir / Golden Romance / Blade Runner / Vintage Film / Epic Cinemascope) dạng copy-paste sẵn, đã verify sinh ảnh chuẩn 1280x720.
+- `references/cinematic_prompts.md` — 6 prompt phong cách (Neo-Noir / Golden Romance / Blade Runner / Vintage Film / Epic Cinemascope / Healing Pink) dạng copy-paste sẵn, đã verify sinh ảnh chuẩn 1280x720. COUPLE RULE áp dụng (man+woman).
 
 ## CLI NHANH
 ```bash
@@ -94,8 +99,14 @@ python3 gen_image_302.py --model flux4b --size 1280x720 \
 - **D. Vintage Film**: 1970s tungsten #FFB300, #A1887F palette, 35mm grain, vignette
 - **E. Epic Cinemascope**: hill at dusk, #FF7043 + #7E57C2 sky, god rays, grand scale
 - **F. Healing Pink (Chữa lành / Tình yêu thương)**: gam hồng ấm, viền trái tim, ngôi sao/ánh sáng mờ ảo, cảm giác ấm áp của tình yêu thương
+- **G. Premium Romance (Typography Nhật cao cấp)**: couple bên phải golden-hour, 4 text block bên trái (badge + 2 headline + heart hook), outline burgundy/ivory, photorealistic
 
-### Prompt mẫu (Style F — Healing Pink, copy đổi title):
+### Prompt mẫu (Style G — Premium Romance, copy đổi text):
+```text
+Create a premium cinematic YouTube music thumbnail in 16:9 landscape format for an emotional romantic song titled '{TITLE}'. CORE VISUAL: A tender intimate cinematic moment of two attractive young adult lovers beside a large sunlit window at golden hour. Place them on the right half of the frame, chest-up close-up, forehead to forehead, faces large and sharply focused. One person eyes softly closed, other subtle vulnerable smile. Emotion hesitant, sincere, nostalgic, unspoken love. Warm golden-hour backlight #FFB347 behind, delicate rosy rim light #FF6F91 around hair and shoulders, creamy bokeh, floating dust motes, shallow depth of field, subtle anamorphic lens flare, glossy natural skin highlights, warm amber-rose color grading, elegant film grain, dreamy premium romantic music-video mood. TYPOGRAPHY: bold high-impact layered YouTube thumbnail typography inspired by energetic Japanese thumbnail layouts, all text English, elegant romantic. Heavy white outer outlines, deep burgundy inner outlines, strong soft drop shadows, slight angle variation, small sparkle accents, clean spacing. Keep all text on left half. Exactly 4 text elements: 1. TOP-LEFT BADGE 'NEW LOVE SONG' small deep-burgundy rounded label gold sparkle, bold uppercase warm-ivory thin white outline. 2. PRIMARY 'I CAN'T' large upper-left warm ivory #FFF8E7 thick white outline deep wine burgundy #8B1A3A inner outline dark burgundy drop shadow golden edge glow. 3. SECONDARY 'SAY IT' below much larger slightly angled upward blush pink #FF6F91 thick ivory white outline deep burgundy shadow glossy, single largest element. 4. LOWER-LEFT HEART BURST soft-pink heart warm-ivory outline burgundy shadow gold sparkles 'FIRST WORDS?' bold deep burgundy 'WORDS?' larger than 'FIRST'. High contrast, no extra text, no watermark, no anime, photorealistic.
+```
+> Đặc trưng G: couple không bị che (bên phải), typography Nhật tầng lớp (badge + 2 headline + heart hook), outline burgundy/ivory, premium clickable. Dùng cho bài love/tender chủ chốt. Có thể đổi {primary}=I CAN'T, {secondary}=SAY IT, {badge}=NEW LOVE SONG, {hook}=FIRST WORDS?
+
 ```text
 Cinematic YouTube thumbnail 16:9 for '{TITLE}' - {STYLE_DESC}.
 LARGE bold rounded sans-serif text '{SHORT}' in #FFF0F5 with #C2185B outline at top-center, readable small.
